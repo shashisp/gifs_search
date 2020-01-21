@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+
+
+</head>
+<body ng-app="gifs">
+	<div class="ui container" ng-controller="GifCtrl" style="margin-top: 20px" >
+		<div class="ui center aligned icon input header">
+  			<input type="text" ng-model="query" placeholder="Search...">
+			<button class="big ui primary button" ng-click="loadData()">
+			   Go
+			</button>
+		</div>
+		<div ng-repeat="gif in results">
+
+			<div class="ui card">
+			  <div class="image">
+			    <img src="[[gif.images.preview_gif.url]]">
+			  </div>
+			  <div class="content">
+			    <a class="header">[[gif.title]]</a>
+
+			    <div class="description">
+			      URL: [[ gif.url ]].
+			    </div>
+			  </div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+
+
+<script type="text/javascript" src="{% static "js/angular.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/restangular.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/underscore-min.js" %}"></script>
+
+<script type="text/javascript" src="{% static "js/app.js" %}"></script>
+
+
+</html>

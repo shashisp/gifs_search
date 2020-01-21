@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from gifs.views import HomePageView, GifsViewSet
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/$', GifsViewSet.as_view(), name="gifs-api"),
+    url("", HomePageView.as_view(), name="home")
 ]
